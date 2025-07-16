@@ -32,7 +32,7 @@ function App() {
         variant='contained'
         color='error'
       />
-      <ImageBox src='./react.svg' />
+      <ImageBox src='' />
       <PreferencesList
         label='Preferenze'
         preferences={['preferenza 1', 'preferenza 2', 'preferenza 3']}
