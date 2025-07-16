@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "username": "giulia.rossi",
+    "photo": "https://randomuser.me/api/portraits/women/65.jpg",
+    "nome": "Giulia",
+    "cognome": "Rossi",
+    "dataNascita": "2002-07-10",
+    "bio": "Studentessa appassionata di design e viaggi.",
+    "preferenze": ["sushi", "nuoto", "montagna"]
+  },
+  {
+    "id": 2,
+    "username": "marco.bianchi",
+    "photo": "https://randomuser.me/api/portraits/men/32.jpg",
+    "nome": "Marco",
+    "cognome": "Bianchi",
+    "dataNascita": "2001-11-22",
+    "bio": "Sviluppatore web con la passione per la musica e lo sport.",
+    "preferenze": ["pizza", "calcio", "mare"]
+  }
+]

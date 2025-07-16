@@ -4,7 +4,7 @@ import {
   UserInfo,
   ImageBox,
   PreferencesList,
-} from '../components';
+} from './components';
 import './App.css';
 
 function App() {
