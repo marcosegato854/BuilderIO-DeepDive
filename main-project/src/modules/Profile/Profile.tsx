@@ -10,7 +10,7 @@ import {
 
 const Profile: React.FC = () => {
   return (
-    <Box
+    /*<Box
       sx={{
         width: "100vw",
         height: "100vh",
@@ -28,7 +28,7 @@ const Profile: React.FC = () => {
           overflowY: "auto",
         },
       }}
-    >
+    >*/
       {/* Left Sidebar */}
       <Box
         sx={{
@@ -253,7 +253,7 @@ const Profile: React.FC = () => {
           />
         </Box>
       </Box>
-    </Box>
+    //</Box>
   );
 };
 
