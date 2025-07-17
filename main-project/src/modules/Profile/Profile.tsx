@@ -247,27 +247,6 @@ const Profile: React.FC = () => {
             },
           }}
         >
-          <CustomButton
-            label="Modifica"
-            variant="outlined"
-            size="big"
-            sx={{
-              color: "#FFF",
-              borderColor: "#FFF",
-              borderRadius: "8px",
-              fontSize: "16px",
-              fontFamily:
-                "Roboto, -apple-system, Roboto, Helvetica, sans-serif",
-              fontWeight: 400,
-              width: "197px",
-              height: "64px",
-              textTransform: "none",
-              "&:hover": {
-                borderColor: "#FFF",
-                background: "rgba(255, 255, 255, 0.08)",
-              },
-            }}
-          />
         </Box>
       </Box>
     </Box>
