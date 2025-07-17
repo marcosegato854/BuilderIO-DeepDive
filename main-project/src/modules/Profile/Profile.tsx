@@ -46,12 +46,15 @@ const Profile: React.FC = () => {
         }}
       >
         {/* Profile Image */}
-        <Box
+        <ImageBox
+          src=""
+          alt="Profile image"
+          maxWidth="250px"
+          borderRadius="30px"
           sx={{
             width: "250px",
             height: "276px",
             background: "#D9E9BE",
-            borderRadius: "30px",
             flexShrink: 0,
             "@media (max-width: 768px)": {
               width: "200px",
