@@ -10,7 +10,25 @@ import {
 
 const Profile: React.FC = () => {
   return (
-    
+    <Box
+      sx={{
+        width: "100vw",
+        height: "100vh",
+        background: "#303030",
+        display: "flex",
+        gap: "135px",
+        padding: { xs: "20px", md: "102px 102px 102px 102px" },
+        boxSizing: "border-box",
+        overflow: "hidden",
+        "@media (max-width: 768px)": {
+          flexDirection: "column",
+          gap: "20px",
+          padding: "20px",
+          height: "auto",
+          overflowY: "auto",
+        },
+      }}
+    >
       {/* Left Sidebar */}
       <Box
         sx={{
@@ -235,7 +253,7 @@ const Profile: React.FC = () => {
           />
         </Box>
       </Box>
-   // </Box>
+    </Box>
   );
 };
 
