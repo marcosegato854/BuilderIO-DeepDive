@@ -10,35 +10,10 @@ import "./App.css";
 const theme = createTheme({
   palette: {
     mode: "dark",
-    background: {
-      default: "#3B444F",
-    },
   },
   typography: {
     fontFamily:
       '"Roboto", "Hexagon Akkurat", -apple-system, BlinkMacSystemFont, sans-serif',
-    h3: {
-      fontSize: "41px",
-      fontWeight: 400,
-      lineHeight: "47px",
-      color: "#BCBEC5",
-    },
-    h4: {
-      fontSize: "26px",
-      fontWeight: 500,
-      color: "#BCBEC5",
-    },
-    h5: {
-      fontSize: "26px",
-      fontWeight: 400,
-      lineHeight: "38px",
-      color: "#BCBEC5",
-    },
-    body1: {
-      fontSize: "20px",
-      fontWeight: 500,
-      color: "#FFF",
-    },
   },
 });
 
@@ -47,230 +22,268 @@ function App() {
     <ThemeProvider theme={theme}>
       <Box
         sx={{
-          minHeight: "100vh",
+          width: "100vw",
+          height: "100vh",
           backgroundColor: "#3B444F",
-          padding: "60px",
-          fontFamily: 'Roboto, "Hexagon Akkurat", -apple-system, sans-serif',
+          position: "relative",
+          overflow: "hidden",
         }}
       >
-        <Box
+        {/* Profile Header */}
+        <Typography
           sx={{
-            display: "flex",
-            gap: "339px",
-            alignItems: "flex-start",
-            maxWidth: "1257px",
-            margin: "0 auto",
+            position: "absolute",
+            left: "687px",
+            top: "123px",
+            color: "#FFF",
+            fontSize: "24px",
+            fontWeight: 500,
+            fontFamily: "Roboto",
           }}
         >
-          {/* Left Section - User Profile */}
+          Profilo
+        </Typography>
+
+        {/* Green Image Box */}
+        <Box
+          sx={{
+            position: "absolute",
+            left: "148px",
+            top: "245px",
+            width: "250px",
+            height: "276px",
+            backgroundColor: "#D9E9BE",
+            borderRadius: "30px",
+          }}
+        />
+
+        {/* User Info */}
+        <Box
+          sx={{
+            position: "absolute",
+            left: "148px",
+            top: "540px",
+            width: "335px",
+          }}
+        >
+          <Typography
+            sx={{
+              color: "#BCBEC5",
+              fontFamily: "Hexagon Akkurat",
+              fontSize: "41px",
+              fontWeight: 400,
+              lineHeight: "47px",
+              marginBottom: "19px",
+            }}
+          >
+            Nome e Cognome
+          </Typography>
+          <Typography
+            sx={{
+              color: "#BCBEC5",
+              fontFamily: "Hexagon Akkurat",
+              fontSize: "26px",
+              fontWeight: 400,
+              lineHeight: "38px",
+            }}
+          >
+            Data di nascita
+          </Typography>
+        </Box>
+
+        {/* Logout Button */}
+        <Box
+          sx={{
+            position: "absolute",
+            left: "148px",
+            top: "693px",
+            width: "120px",
+            height: "28px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            border: "1px solid #FFF",
+            borderRadius: "8px",
+            padding: "12px",
+          }}
+        >
+          <Typography
+            sx={{
+              color: "#FFF",
+              fontFamily: "Roboto",
+              fontSize: "16px",
+              fontWeight: 400,
+            }}
+          >
+            Logout
+          </Typography>
+        </Box>
+
+        {/* Bio Section */}
+        <Box
+          sx={{
+            position: "absolute",
+            left: "687px",
+            top: "285px",
+            width: "570px",
+            height: "236px",
+            backgroundColor: "#343A43",
+            borderRadius: "6px",
+            padding: "18px 22px",
+          }}
+        >
+          {/* Bio Title with underline */}
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
-              gap: "19px",
-              width: "335px",
+              gap: "4px",
+              marginBottom: "52px",
             }}
           >
-            {/* Image Box */}
-            <ImageBox
-              src=""
-              alt="Profile picture"
+            <Typography
               sx={{
-                width: "250px",
-                height: "276px",
-                backgroundColor: "#D9E9BE",
-                borderRadius: "30px",
-                aspectRatio: "auto",
-                marginBottom: "39px",
-              }}
-            />
-
-            {/* User Info */}
-            <UserInfo
-              name="Nome e Cognome"
-              birthDate="Data di nascita"
-              sx={{
-                alignSelf: "stretch",
-                "& .MuiTypography-h3": {
-                  fontSize: "41px",
-                  fontWeight: 400,
-                  lineHeight: "47px",
-                  color: "#BCBEC5",
-                  marginBottom: "19px",
-                },
-                "& .MuiTypography-h5": {
-                  fontSize: "26px",
-                  fontWeight: 400,
-                  lineHeight: "38px",
-                  color: "#BCBEC5",
-                },
-              }}
-            />
-
-            {/* Logout Button */}
-            <CustomButton
-              label="Logout"
-              size="small"
-              variant="outlined"
-              sx={{
-                width: "120px",
-                height: "28px",
-                borderRadius: "8px",
-                border: "1px solid #FFF",
                 color: "#FFF",
-                borderColor: "#FFF",
-                fontSize: "16px",
-                fontWeight: 400,
-                marginTop: "50px",
-                "&:hover": {
-                  borderColor: "#FFF",
-                  backgroundColor: "rgba(255, 255, 255, 0.1)",
-                },
+                fontFamily: "Roboto",
+                fontSize: "20px",
+                fontWeight: 500,
+              }}
+            >
+              Bio
+            </Typography>
+            <Box
+              sx={{
+                width: "30px",
+                height: "2px",
+                backgroundColor: "#E00C0C",
               }}
             />
           </Box>
 
-          {/* Right Section - Bio and Preferences */}
-          <Box
+          {/* Bio Content */}
+          <Typography
             sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "21px",
-              width: "570px",
+              color: "#FFF",
+              fontFamily: "Roboto",
+              fontSize: "20px",
+              fontWeight: 500,
+              lineHeight: "normal",
+              width: "526px",
             }}
           >
-            {/* Bio Section */}
-            <Box
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et
+            hendrerit nulla. Fusce vel leo sit amet massa cursus dignissim.
+            Integer imperdiet libero ac dictum venenatis.
+          </Typography>
+        </Box>
+
+        {/* Preferences Section */}
+        <Box
+          sx={{
+            position: "absolute",
+            left: "675px",
+            top: "522px",
+            width: "167px",
+            height: "166px",
+          }}
+        >
+          <Typography
+            sx={{
+              color: "#BCBEC5",
+              fontFamily: "Roboto",
+              fontSize: "26px",
+              fontWeight: 500,
+              marginBottom: "34px",
+            }}
+          >
+            Preferenze
+          </Typography>
+
+          <Box sx={{ display: "flex", flexDirection: "column", gap: "9px" }}>
+            <Typography
               sx={{
-                width: "570px",
-                height: "236px",
-                padding: "18px 22px",
-                backgroundColor: "#343A43",
-                borderRadius: "6px",
-                display: "flex",
-                flexDirection: "column",
-                gap: "1px",
+                color: "#BCBEC5",
+                fontFamily: "Roboto",
+                fontSize: "24px",
+                fontWeight: 300,
+                position: "relative",
+                paddingLeft: "20px",
+                "&::before": {
+                  content: '"•"',
+                  position: "absolute",
+                  left: "0",
+                  color: "#BCBEC5",
+                },
               }}
             >
-              {/* Bio Header */}
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "4px",
-                  width: "30px",
-                  height: "27px",
-                  marginBottom: "52px",
-                }}
-              >
-                <Typography
-                  sx={{
-                    color: "#FFF",
-                    fontSize: "20px",
-                    fontWeight: 500,
-                    lineHeight: "normal",
-                  }}
-                >
-                  Bio
-                </Typography>
-                <Box
-                  sx={{
-                    width: "30px",
-                    height: "2px",
-                    backgroundColor: "#E00C0C",
-                  }}
-                />
-              </Box>
-
-              {/* Bio Content */}
-              <Typography
-                sx={{
-                  color: "#FFF",
-                  fontSize: "20px",
-                  fontWeight: 500,
-                  lineHeight: "normal",
-                  width: "526px",
-                }}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-                et hendrerit nulla. Fusce vel leo sit amet massa cursus
-                dignissim. Integer imperdiet libero ac dictum venenatis.
-              </Typography>
-            </Box>
-
-            {/* Preferences and Edit Button Section */}
-            <Box
+              preferenza 1
+            </Typography>
+            <Typography
               sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "flex-start",
-                width: "570px",
+                color: "#BCBEC5",
+                fontFamily: "Roboto",
+                fontSize: "24px",
+                fontWeight: 300,
+                position: "relative",
+                paddingLeft: "20px",
+                "&::before": {
+                  content: '"•"',
+                  position: "absolute",
+                  left: "0",
+                  color: "#BCBEC5",
+                },
               }}
             >
-              {/* Preferences */}
-              <PreferencesList
-                label="Preferenze"
-                preferences={["preferenza 1", "preferenza 2", "preferenza 3"]}
-                sx={{
-                  width: "167px",
-                }}
-                labelProps={{
-                  sx: {
-                    fontSize: "26px",
-                    fontWeight: 500,
-                    color: "#BCBEC5",
-                    marginBottom: "34px",
-                  },
-                }}
-                listProps={{
-                  sx: {
-                    listStyleType: "disc",
-                    paddingLeft: 0,
-                    "& .MuiListItem-root": {
-                      display: "list-item",
-                      paddingLeft: 0,
-                      paddingTop: 0,
-                      paddingBottom: "9px",
-                      "&::marker": {
-                        color: "#BCBEC5",
-                      },
-                    },
-                    "& .MuiTypography-h5": {
-                      fontSize: "24px",
-                      fontWeight: 300,
-                      color: "#BCBEC5",
-                      lineHeight: "normal",
-                    },
-                  },
-                }}
-              />
-
-              {/* Edit Button */}
-              <CustomButton
-                label="Modifica"
-                size="big"
-                variant="outlined"
-                sx={{
-                  width: "197px",
-                  height: "40px",
-                  borderRadius: "8px",
-                  border: "1px solid #FFF",
-                  color: "#FFF",
-                  borderColor: "#FFF",
-                  fontSize: "16px",
-                  fontWeight: 400,
-                  alignSelf: "flex-end",
-                  marginTop: "52px",
-                  "&:hover": {
-                    borderColor: "#FFF",
-                    backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  },
-                }}
-              />
-            </Box>
+              preferenza 2
+            </Typography>
+            <Typography
+              sx={{
+                color: "#BCBEC5",
+                fontFamily: "Roboto",
+                fontSize: "24px",
+                fontWeight: 300,
+                position: "relative",
+                paddingLeft: "20px",
+                "&::before": {
+                  content: '"•"',
+                  position: "absolute",
+                  left: "0",
+                  color: "#BCBEC5",
+                },
+              }}
+            >
+              preferenza 3
+            </Typography>
           </Box>
+        </Box>
+
+        {/* Modifica Button */}
+        <Box
+          sx={{
+            position: "absolute",
+            left: "1048px",
+            top: "740px",
+            width: "197px",
+            height: "40px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            border: "1px solid #FFF",
+            borderRadius: "8px",
+            padding: "12px",
+          }}
+        >
+          <Typography
+            sx={{
+              color: "#FFF",
+              fontFamily: "Roboto",
+              fontSize: "16px",
+              fontWeight: 400,
+            }}
+          >
+            Modifica
+          </Typography>
         </Box>
       </Box>
     </ThemeProvider>
