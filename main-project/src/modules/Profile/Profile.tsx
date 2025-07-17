@@ -93,27 +93,41 @@ const Profile: React.FC = () => {
           />
         </Box>
 
-        {/* Logout Button */}
-        <Box sx={{ marginTop: "auto", alignSelf: "flex-start" }}>
+        {/* Buttons */}
+        <Box
+          sx={{
+            marginTop: "auto",
+            alignSelf: "flex-start",
+            display: "flex",
+            gap: "12px",
+          }}
+        >
           <CustomButton
             label="Logout"
             variant="outlined"
-            size="small"
+            size="medium"
+            color="warning"
             sx={{
-              color: "#FFF",
-              borderColor: "#FFF",
               borderRadius: "8px",
               fontSize: "16px",
               fontFamily:
                 "Roboto, -apple-system, Roboto, Helvetica, sans-serif",
               fontWeight: 400,
-              width: "120px",
-              height: "52px",
               textTransform: "none",
-              "&:hover": {
-                borderColor: "#FFF",
-                background: "rgba(255, 255, 255, 0.08)",
-              },
+            }}
+          />
+          <CustomButton
+            label="Modifica"
+            variant="outlined"
+            size="medium"
+            color="info"
+            sx={{
+              borderRadius: "8px",
+              fontSize: "16px",
+              fontFamily:
+                "Roboto, -apple-system, Roboto, Helvetica, sans-serif",
+              fontWeight: 400,
+              textTransform: "none",
             }}
           />
         </Box>
