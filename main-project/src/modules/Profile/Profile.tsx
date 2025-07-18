@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, TextField, Button } from '@mui/material';
 import {
   UserInfo,
   CustomButton,
@@ -7,13 +7,29 @@ import {
   PreferencesList,
   BioCard,
 } from '../../components';
-
-import { useAuthStore } from '../../store/authStore'; // <-- import your store
-
+import { useAuthStore } from '../../store/authStore';
 const Profile: React.FC = () => {
-  const { user, logout } = useAuthStore(); // <-- get logged in user!
+  const { user, logout, setBioAndPreferenze } = useAuthStore();
+  const [editing, setEditing] = useState(false);
 
-  if (!user) return null; // or redirect to login
+  const [bio, setBio] = useState(user?.bio || '');
+  const [prefs, setPrefs] = useState<[string, string, string]>(
+    user?.preferenze || ['', '', '']
+  );
+  // Start editing: snapshot current user values
+  const startEdit = () => {
+    setBio(user?.bio || '');
+    setPrefs(user?.preferenze || ['', '', '']);
+    setEditing(true);
+  };
+  // Save: apply to store
+  const save = () => {
+    setBioAndPreferenze(bio, prefs);
+    setEditing(false);
+  };
+  // Cancel: leave values
+  const cancel = () => setEditing(false);
+  if (!user) return null;
 
   return (
     <Box
@@ -113,7 +129,7 @@ const Profile: React.FC = () => {
             variant='outlined'
             size='medium'
             color='warning'
-            onClick={logout} // <-- wire up logout!
+            onClick={logout}
             sx={{
               borderRadius: '8px',
               fontSize: '16px',
@@ -125,10 +141,11 @@ const Profile: React.FC = () => {
           />
 
           <CustomButton
-            label='Modifica'
+            label={editing ? 'Salva' : 'Modifica'}
             variant='outlined'
             size='medium'
             color='info'
+            onClick={editing ? save : startEdit}
             sx={{
               borderRadius: '8px',
               fontSize: '16px',
@@ -138,6 +155,22 @@ const Profile: React.FC = () => {
               textTransform: 'none',
             }}
           />
+          {editing && (
+            <CustomButton
+              label='Annulla'
+              size='medium'
+              onClick={cancel}
+              color='inherit'
+              sx={{
+                borderRadius: '8px',
+                fontSize: '16px',
+                fontFamily:
+                  'Roboto, -apple-system, Roboto, Helvetica, sans-serif',
+                fontWeight: 400,
+                textTransform: 'none',
+              }}
+            />
+          )}
         </Box>
       </Box>
 
@@ -166,80 +199,112 @@ const Profile: React.FC = () => {
         </Box>
 
         {/* Bio Card */}
-        <BioCard
-          label='Bio'
-          text={user.bio}
-          sx={{
-            width: { xs: '100%', md: '570px' },
-            height: { xs: 'auto', md: '236px' },
-            background: '#343A43',
-            borderRadius: '8px',
-            padding: '18px 22px',
-            '& .MuiTypography-h5': {
-              color: '#FFF',
-              fontFamily:
-                'Roboto, -apple-system, Roboto, Helvetica, sans-serif',
-              fontSize: '24px',
-              fontWeight: 500,
-              lineHeight: 'normal',
-              borderBottom: '2px solid #E00C0C',
-              marginBottom: '54px',
-              paddingBottom: '4px',
-              display: 'inline-block',
-              width: 'auto',
-            },
-            '& .MuiTypography-body1': {
-              color: '#BCBEC5',
-              fontFamily:
-                'Roboto, -apple-system, Roboto, Helvetica, sans-serif',
-              fontSize: '20px',
-              fontWeight: 500,
-              lineHeight: 'normal',
-              marginTop: '0',
-            },
-          }}
-        />
-
-        {/* Preferences Section */}
-        <PreferencesList
-          label='Preferenze'
-          preferences={user.preferenze}
-          sx={{
-            width: { xs: '100%', md: '167px' },
-            height: '166px',
-          }}
-          labelProps={{
-            sx: {
-              color: '#BCBEC5',
-              fontFamily:
-                'Roboto, -apple-system, Roboto, Helvetica, sans-serif',
-              fontSize: { xs: '20px', md: '26px' },
-              fontWeight: 500,
-              lineHeight: 'normal',
-              marginBottom: '34px',
-            },
-          }}
-          listProps={{
-            sx: {
-              listStyleType: 'disc',
-              paddingLeft: '20px',
-              '& .MuiListItem-root': {
-                display: 'list-item',
-                paddingLeft: 0,
-                paddingTop: 0,
-                paddingBottom: '9px',
-              },
+        {editing ? (
+          <Box>
+            <TextField
+              label='Bio'
+              value={bio}
+              onChange={(e) => setBio(e.target.value)}
+              multiline
+              fullWidth
+              minRows={3}
+              sx={{ mb: 2, bgcolor: '#222', color: '#FFF' }}
+            />
+          </Box>
+        ) : (
+          <BioCard
+            label='Bio'
+            text={user.bio}
+            sx={{
+              width: { xs: '100%', md: '570px' },
+              height: { xs: 'auto', md: '236px' },
+              background: '#343A43',
+              borderRadius: '8px',
+              padding: '18px 22px',
               '& .MuiTypography-h5': {
+                color: '#FFF',
+                fontFamily:
+                  'Roboto, -apple-system, Roboto, Helvetica, sans-serif',
+                fontSize: '24px',
+                fontWeight: 500,
+                lineHeight: 'normal',
+                borderBottom: '2px solid #E00C0C',
+                marginBottom: '54px',
+                paddingBottom: '4px',
+                display: 'inline-block',
+                width: 'auto',
+              },
+              '& .MuiTypography-body1': {
                 color: '#BCBEC5',
                 fontFamily:
                   'Roboto, -apple-system, Roboto, Helvetica, sans-serif',
-                fontSize: { xs: '18px', md: '24px' },
-                fontWeight: 300,
+                fontSize: '20px',
+                fontWeight: 500,
                 lineHeight: 'normal',
+                marginTop: '0',
               },
-            },
-          }}
-        />
+            }}
+          />
+        )}
+
+        {/* Preferences Section */}
+        {editing ? (
+          <Box>
+            {[0, 1, 2].map((i) => (
+              <TextField
+                key={i}
+                label={`Preferenza ${i + 1}`}
+                value={prefs[i] || ''}
+                onChange={(e) => {
+                  const cp = [...prefs] as [string, string, string];
+                  cp[i] = e.target.value;
+                  setPrefs(cp);
+                }}
+                sx={{ mb: 1, bgcolor: '#222', color: '#FFF', width: 240 }}
+              />
+            ))}
+          </Box>
+        ) : (
+          <PreferencesList
+            label='Preferenze'
+            preferences={user.preferenze}
+            sx={{
+              width: { xs: '100%', md: '167px' },
+              height: '166px',
+            }}
+            labelProps={{
+              sx: {
+                color: '#BCBEC5',
+                fontFamily:
+                  'Roboto, -apple-system, Roboto, Helvetica, sans-serif',
+                fontSize: { xs: '20px', md: '26px' },
+                fontWeight: 500,
+                lineHeight: 'normal',
+                marginBottom: '34px',
+              },
+            }}
+            listProps={{
+              sx: {
+                listStyleType: 'disc',
+                paddingLeft: '20px',
+                '& .MuiListItem-root': {
+                  display: 'list-item',
+                  paddingLeft: 0,
+                  paddingTop: 0,
+                  paddingBottom: '9px',
+                },
+                '& .MuiTypography-h5': {
+                  color: '#BCBEC5',
+                  fontFamily:
+                    'Roboto, -apple-system, Roboto, Helvetica, sans-serif',
+                  fontSize: { xs: '18px', md: '24px' },
+                  fontWeight: 300,
+                  lineHeight: 'normal',
+                },
+              },
+            }}
+          />
+        )}
       </Box>
     </Box>
   );

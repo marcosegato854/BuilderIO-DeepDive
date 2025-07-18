@@ -16,6 +16,10 @@ type AuthState = {
   isLoggedIn: boolean;
   login: (user: User) => void;
   logout: () => void;
+  setBioAndPreferenze: (
+    bio: string,
+    preferenze: [string, string, string]
+  ) => void;
 };
 
 export const useAuthStore = create<AuthState>((set) => ({
@@ -23,4 +27,8 @@ export const useAuthStore = create<AuthState>((set) => ({
   isLoggedIn: false,
   login: (user) => set({ user, isLoggedIn: true }),
   logout: () => set({ user: null, isLoggedIn: false }),
+  setBioAndPreferenze: (bio: string, preferenze: [string, string, string]) =>
+    set((state) =>
+      state.user ? { user: { ...state.user, bio, preferenze } } : {}
+    ),
 }));
