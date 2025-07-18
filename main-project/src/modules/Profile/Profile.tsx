@@ -294,7 +294,7 @@ const Profile: React.FC = () => {
                   paddingBottom: "9px",
                 },
                 "& .MuiTypography-h5": {
-                  color: "#BCBEC5",
+                  color: "#495057",
                   fontFamily:
                     "Roboto, -apple-system, Roboto, Helvetica, sans-serif",
                   fontSize: { xs: "18px", md: "24px" },
