@@ -208,7 +208,7 @@ const Profile: React.FC = () => {
               multiline
               fullWidth
               minRows={3}
-              sx={{ mb: 2, bgcolor: "#222", color: "#FFF" }}
+              sx={{ mb: 2, bgcolor: "#ffffff", color: "#213547" }}
             />
           </Box>
         ) : (
