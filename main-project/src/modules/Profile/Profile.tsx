@@ -260,7 +260,7 @@ const Profile: React.FC = () => {
                   cp[i] = e.target.value;
                   setPrefs(cp);
                 }}
-                sx={{ mb: 1, bgcolor: "#222", color: "#FFF", width: 240 }}
+                sx={{ mb: 1, bgcolor: "#ffffff", color: "#213547", width: 240 }}
               />
             ))}
           </Box>
