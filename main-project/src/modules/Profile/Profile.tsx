@@ -187,7 +187,7 @@ const Profile: React.FC = () => {
         {/* Profile Header */}
         <Box
           sx={{
-            color: "#BCBEC5",
+            color: "#495057",
             fontFamily: "Roboto, -apple-system, Roboto, Helvetica, sans-serif",
             fontSize: { xs: "24px", md: "32px" },
             fontWeight: 500,
