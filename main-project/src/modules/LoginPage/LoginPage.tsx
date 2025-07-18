@@ -28,11 +28,12 @@ const LoginPage: React.FC = () => {
   return (
     <Box
       sx={{
-        width: 300,
+        width: '100vw',
         margin: '80px auto',
         display: 'flex',
         flexDirection: 'column',
         gap: 2,
+        color: 'white',
       }}
     >
       <TextField
