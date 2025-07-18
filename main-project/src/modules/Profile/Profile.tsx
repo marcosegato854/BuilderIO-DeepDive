@@ -274,7 +274,7 @@ const Profile: React.FC = () => {
             }}
             labelProps={{
               sx: {
-                color: "#BCBEC5",
+                color: "#495057",
                 fontFamily:
                   "Roboto, -apple-system, Roboto, Helvetica, sans-serif",
                 fontSize: { xs: "20px", md: "26px" },
