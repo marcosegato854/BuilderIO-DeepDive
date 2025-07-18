@@ -228,7 +228,7 @@ const Profile: React.FC = () => {
                 fontSize: "24px",
                 fontWeight: 500,
                 lineHeight: "normal",
-                borderBottom: "2px solid #E00C0C",
+                borderBottom: "2px solid #0066cc",
                 marginBottom: "54px",
                 paddingBottom: "4px",
                 display: "inline-block",
