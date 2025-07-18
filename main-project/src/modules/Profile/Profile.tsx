@@ -235,7 +235,7 @@ const Profile: React.FC = () => {
                 width: "auto",
               },
               "& .MuiTypography-body1": {
-                color: "#BCBEC5",
+                color: "#495057",
                 fontFamily:
                   "Roboto, -apple-system, Roboto, Helvetica, sans-serif",
                 fontSize: "20px",
