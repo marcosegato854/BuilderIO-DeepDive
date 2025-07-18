@@ -222,7 +222,7 @@ const Profile: React.FC = () => {
               borderRadius: "8px",
               padding: "18px 22px",
               "& .MuiTypography-h5": {
-                color: "#FFF",
+                color: "#213547",
                 fontFamily:
                   "Roboto, -apple-system, Roboto, Helvetica, sans-serif",
                 fontSize: "24px",
