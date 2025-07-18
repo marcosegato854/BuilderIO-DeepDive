@@ -103,7 +103,7 @@ const Profile: React.FC = () => {
                 marginBottom: "19px",
               },
               "& .MuiTypography-h5": {
-                color: "#BCBEC5",
+                color: "#495057",
                 fontFamily:
                   "Hexagon Akkurat, -apple-system, Roboto, Helvetica, sans-serif",
                 fontSize: { xs: "20px", md: "26px" },
