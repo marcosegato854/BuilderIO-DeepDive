@@ -4,9 +4,10 @@ import { Box, Typography } from '@mui/material';
 interface BioCardProps {
   label: string;
   text: string;
+  sx?: object;
 }
 
-const BioCard: React.FC<BioCardProps> = ({ label, text }) => (
+const BioCard: React.FC<BioCardProps> = ({ label, text, sx = {} }) => (
   <Box
     sx={{
       background: '#393E46',
@@ -21,6 +22,7 @@ const BioCard: React.FC<BioCardProps> = ({ label, text }) => (
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'flex-start',
+      ...sx,
     }}
   >
     <Typography
