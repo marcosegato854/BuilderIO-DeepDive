@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 // Adjust import path to your users.json location:
-import users from '../../data/users.json';
-import { useAuthStore } from '../../store/authStore';
-import { TextField, Button, Box } from '@mui/material';
+import users from "../../data/users.json";
+import { useAuthStore } from "../../store/authStore";
+import { TextField, Button, Box } from "@mui/material";
 
 const LoginPage: React.FC = () => {
   const login = useAuthStore((state) => state.login);
-  const [username, setUsername] = useState('');
-  const [error, setError] = useState('');
+  const [username, setUsername] = useState("");
+  const [error, setError] = useState("");
 
   const handleLogin = () => {
     const foundAny = users.find((u) => u.username === username);
@@ -15,35 +15,35 @@ const LoginPage: React.FC = () => {
       // Ensure we have exactly 3 preferences, filling with empty strings if missing
       const { preferenze, ...rest } = foundAny;
       const tuplePrefs: [string, string, string] = [
-        preferenze[0] || '',
-        preferenze[1] || '',
-        preferenze[2] || '',
+        preferenze[0] || "",
+        preferenze[1] || "",
+        preferenze[2] || "",
       ];
       login({ ...rest, preferenze: tuplePrefs });
     } else {
-      setError('Utente non trovato');
+      setError("Utente non trovato");
     }
   };
 
   return (
     <Box
       sx={{
-        width: '100vw',
-        margin: '80px auto',
-        display: 'flex',
-        flexDirection: 'column',
+        width: "100vw",
+        margin: "80px auto",
+        display: "flex",
+        flexDirection: "column",
         gap: 2,
-        color: 'white',
+        color: "#213547",
       }}
     >
       <TextField
-        label='Username'
+        label="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         autoFocus
       />
-      {error && <Box sx={{ color: 'red' }}>{error}</Box>}
-      <Button variant='contained' onClick={handleLogin}>
+      {error && <Box sx={{ color: "red" }}>{error}</Box>}
+      <Button variant="contained" onClick={handleLogin}>
         Login
       </Button>
     </Box>
