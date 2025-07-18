@@ -56,7 +56,7 @@ const Profile: React.FC = () => {
         sx={{
           width: { xs: "100%", md: "439px" },
           height: { xs: "auto", md: "582px" },
-          background: "#343A43",
+          background: "#ffffff",
           borderRadius: "8px",
           padding: "46px",
           boxSizing: "border-box",
