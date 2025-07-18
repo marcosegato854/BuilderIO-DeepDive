@@ -1,10 +1,4 @@
 import { Box, Typography, createTheme, ThemeProvider } from "@mui/material";
-import {
-  UserInfo,
-  CustomButton,
-  ImageBox,
-  PreferencesList,
-} from "./components";
 import "./App.css";
 
 const theme = createTheme({
