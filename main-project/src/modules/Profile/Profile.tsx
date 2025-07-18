@@ -93,7 +93,7 @@ const Profile: React.FC = () => {
             sx={{
               textAlign: "left",
               "& .MuiTypography-h3": {
-                color: "#BCBEC5",
+                color: "#495057",
                 fontFamily:
                   "Hexagon Akkurat, -apple-system, Roboto, Helvetica, sans-serif",
                 fontSize: { xs: "32px", md: "41px" },
