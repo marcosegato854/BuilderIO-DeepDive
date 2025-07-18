@@ -223,6 +223,8 @@ const Profile: React.FC = () => {
               background: "#ffffff",
               borderRadius: "8px",
               padding: "18px 22px",
+              boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
+              border: "1px solid #e0e0e0",
               "& .MuiTypography-h5": {
                 color: "#213547",
                 fontFamily:
