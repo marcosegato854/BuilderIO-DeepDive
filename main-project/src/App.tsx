@@ -29,7 +29,12 @@ const lightTheme = createTheme({
 const App: React.FC = () => {
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
 
-  return isLoggedIn ? <Profile /> : <LoginPage />;
+  return (
+    <ThemeProvider theme={lightTheme}>
+      <CssBaseline />
+      {isLoggedIn ? <Profile /> : <LoginPage />}
+    </ThemeProvider>
+  );
 };
 
 export default App;
