@@ -8,21 +8,11 @@ import users from './data/users.json'; // <-- importa qui
 
 const lightTheme = createTheme({
   palette: {
-    mode: "light",
-    primary: {
-      main: "#0066cc",
-    },
-    secondary: {
-      main: "#6c757d",
-    },
-    background: {
-      default: "#f8f9fa",
-      paper: "#ffffff",
-    },
-    text: {
-      primary: "#213547",
-      secondary: "#495057",
-    },
+    mode: 'light',
+    primary: { main: '#0066cc' },
+    secondary: { main: '#6c757d' },
+    background: { default: '#f8f9fa', paper: '#ffffff' },
+    text: { primary: '#213547', secondary: '#495057' },
   },
 });
 
