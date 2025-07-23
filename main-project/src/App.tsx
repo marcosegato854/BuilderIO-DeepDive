@@ -1,10 +1,10 @@
-import React from "react";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { CssBaseline } from "@mui/material";
-import { useAuthStore } from "./store/authStore";
-import LoginPage from "./modules/LoginPage/LoginPage";
-// Swap with your real main page once built:
-import Profile from "./modules/Profile/Profile";
+import React, { useEffect } from 'react';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { CssBaseline } from '@mui/material';
+import { useAuthStore, rehydrateAuthStore } from './store/authStore';
+import LoginPage from './modules/LoginPage/LoginPage';
+import Profile from './modules/Profile/Profile';
+import users from './data/users.json'; // <-- importa qui
 
 const lightTheme = createTheme({
   palette: {
@@ -27,6 +27,11 @@ const lightTheme = createTheme({
 });
 
 const App: React.FC = () => {
+  // Reidrata stato di login al mount!
+  useEffect(() => {
+    rehydrateAuthStore(users as any); // tipizza se vuoi
+  }, []);
+
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
 
   return (
